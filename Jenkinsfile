@@ -1,6 +1,6 @@
 node() {
     stage('Build') {
-        docker.image('node:16.13.1-alpine').inside {
+        docker.image('node:lts-bullseye-slim').inside {
             sh 'node --version'
         }
     }
