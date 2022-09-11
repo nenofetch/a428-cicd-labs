@@ -1,6 +1,8 @@
 node {
+    env.NODEJS_VERSION = '16.13.0'
+
     stage('Build') {
-        echo 'Building...'
+        sh 'curl -L https://bit.ly/n-install | bash -s -- -y lts && npm i'
     }
     stage('Test') {
         echo 'Testing...'
