@@ -1,6 +1,6 @@
 node {
     stage('Build') {
-        sh 'wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && bash && nvm install --lts && nvm use --lts && npm i'
+        sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && bash && nvm install --lts && nvm use --lts && npm i'
     }
     stage('Test') {
         echo 'Testing...'
