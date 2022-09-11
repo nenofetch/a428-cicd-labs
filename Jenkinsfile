@@ -1,10 +1,7 @@
-node() {
-    docker.build("node:lts-bullseye-slim").inside {
-        stage('Build') {
-            sh 'npm i'
-        }
-        stage('Test') {
-            sh './jenkins/scripts/test.sh'
+node('docker') {
+    stage('Build') {
+        docker.image('node:16.13.1-alpine').inside {
+            sh 'node --version'
         }
     }
 }
