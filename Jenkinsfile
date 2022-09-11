@@ -1,6 +1,6 @@
 node {
     stage('Build') {
-        sh 'sudo apt-get install gmake cmake git && curl -L https://bit.ly/n-install | bash -s -- -y lts && npm i'
+        sh 'wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && bash && nvm install --lts && nvm use --lts && npm i'
     }
     stage('Test') {
         echo 'Testing...'
