@@ -3,7 +3,7 @@ node {
 
     stage('Build') {
         // sh 'curl -L https://bit.ly/n-install | bash -s -- -y lts && npm i'
-        echo 'lsb_release'
+        sh 'cat /etc/os-release'
     }
     stage('Test') {
         echo 'Testing...'
