@@ -1,5 +1,4 @@
 node {
-    agent any
     stage('Build') {
         // installing npm i
         sh 'npm i'
