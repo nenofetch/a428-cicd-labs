@@ -1,10 +1,11 @@
 node {
     stage('Build') {
-        // installing npm i
-        sh 'npm i'
+        echo 'Building...'
     }
     stage('Test') {
-        // running npm test
-        sh './jenkins/scripts/test.sh'
+        echo 'Testing...'
+    }
+    stage('Deploy') {
+        echo 'Deploying...'
     }
 }
