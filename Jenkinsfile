@@ -1,4 +1,4 @@
-node("react-app") {
+node() {
     docker.build("node:lts-bullseye-slim").inside {
         stage('Build') {
             sh 'npm i'
