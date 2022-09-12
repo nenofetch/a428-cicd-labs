@@ -10,7 +10,7 @@ node() {
 //     }
 // }
 
-dir('/') {
+dir('/home/Documents') {
     stage('Test') {
         docker.image('node:lts-bullseye-slim').inside {
             sh 'ls'
