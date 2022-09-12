@@ -10,7 +10,7 @@ node() {
 //     }
 // }
 
-dir('/home/') {
+dir('/') {
     stage('Test') {
         sh 'ls'
     }
