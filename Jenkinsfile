@@ -12,7 +12,9 @@ node() {
 
 dir('/') {
     stage('Test') {
-        sh 'ls'
+        docker.image('node:lts-bullseye-slim').inside {
+            sh 'ls'
+        }
     }
 }
  
