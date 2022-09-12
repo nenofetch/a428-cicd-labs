@@ -9,13 +9,11 @@ node() {
 //         sh './jenkins/scripts/test.sh'
 //     }
 // }
-
-dir('/home/Documents') {
     stage('Test') {
         docker.image('node:lts-bullseye-slim').inside {
-            sh 'ls'
+            sh 'ls /home/Documents'
         }
     }
-}
+
  
 }
