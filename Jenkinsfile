@@ -1,5 +1,5 @@
 node() {
-    docker.image('node:lts-bullseye-slim').inside {
+    docker.image('node:lts-alpine').inside {
         stage('Build') {
             
                 git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
