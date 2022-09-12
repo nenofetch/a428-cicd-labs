@@ -1,19 +1,12 @@
 node() {
-//     dir('/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs') {
-//     stage('Build') {
-//         docker.image('node:lts-bullseye-slim').inside {
-//             sh 'npm i'
-//         }
-//     }
-//     stage('Test') {
-//         sh './jenkins/scripts/test.sh'
-//     }
-// }
-    stage('Test') {
+    checkout scm
+    stage('Build') {
         docker.image('node:lts-bullseye-slim').inside {
-            sh 'ls /var/jenkins_home/workspace'
+            sh 'npm i'
         }
+    
+    stage('Test') {
+        sh './jenkins/scripts/test.sh'
     }
-
- 
+} 
 }
