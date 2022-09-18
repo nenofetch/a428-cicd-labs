@@ -3,7 +3,7 @@ node() {
     
     
     myDocker.inside {
-        git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
+        checkout scm
         
         stage('Build') {
                 sh 'npm i'
