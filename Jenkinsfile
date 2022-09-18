@@ -1,5 +1,5 @@
 node() {
-    def myDocker = docker.image('node:lts-alpine')
+    def myDocker = docker.build('node:lts-alpine', [-p 3030:3030])
     
     
     myDocker.inside {
