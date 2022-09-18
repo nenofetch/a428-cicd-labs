@@ -1,5 +1,6 @@
 node() {
-    def myDocker = docker.image('node:lts-alpine').run('-p 3000:3000')
+    def myDocker = docker.image('node:lts-alpine')
+    sh "docker pull ${myDocker.imageName()} -p 3000:3000"
     
     
     myDocker.inside {
