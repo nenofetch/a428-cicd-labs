@@ -1,28 +1,28 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:lts-alpine'
-            args '-p 3000:3000'
-        }
-    }
-    stages {
+node() {
+    
+
         stage('Build') {
-            steps {
-                sh 'npm install'
+            docker.image('node:lts-alpine').inside {
+                git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
+                sh 'npm i'
             }
         }
+    
         stage('Test') {
-            steps {
+            docker.image('node:lts-alpine').inside {
+                git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
                 sh './jenkins/scripts/test.sh'
+                input message: 'Lanjut tahap Deploy? (Klik "Proceed" untuk melanjutkan ke tahap deploy)'
             }
         }
-        stage('Deploy') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh' 
-                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
+        stage('Deploy') {
+            docker.image('node:lts-alpine').inside {
+                git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
                 sleep time: 60, unit: 'SECONDS'
-                sh './jenkins/scripts/kill.sh' 
+                sh './jenkins/scripts/kill.sh'            
             }
         }
-    }
+    
 }
