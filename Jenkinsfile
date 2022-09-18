@@ -1,7 +1,7 @@
 node() {
     def myDocker = docker.image('node:lts-alpine')
 
-    myDocker.withRun('-p 3000:3000') {
+    myDocker.inside('-p 3000:3000') {
         checkout
         
         stage('Build') {
