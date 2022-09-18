@@ -16,7 +16,7 @@ node() {
             }
         }
         stage('Deploy') {
-            docker.image('node:lts-alpine').inside {
+            docker.image('node:lts-alpine').Container.port(3000).inside {
                 git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
                 sh './jenkins/scripts/deliver.sh'
                 input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
