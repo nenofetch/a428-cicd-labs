@@ -1,6 +1,6 @@
 node() {
     def myDocker = docker.image('node:lts-alpine')
-    myDocker.Container.port(3000)
+    
     
     myDocker.inside {
         git branch: 'react-app', url: '/home/Documents/Belajar_Implementasi_CICD/Jenkins/a428-cicd-labs'
