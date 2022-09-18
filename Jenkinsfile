@@ -2,7 +2,7 @@ node() {
     def myDocker = docker.image('node:lts-alpine')
 
     myDocker.inside('-p 3000:3000') {
-        checkout
+        checkout scm
         
         stage('Build') {
                 sh 'npm i'
